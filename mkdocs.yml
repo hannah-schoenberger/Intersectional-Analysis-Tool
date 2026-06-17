@@ -1,0 +1,28 @@
+site_name: Intersectional Analysis Tool
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Complexity: Complexity/cover.md
+  - Relationality: Relationality/cover.md
+  - Social Context: context/cover.md
+  - Power: power/cover.md
+  - Social Inequality: inequality/cover.md
+  - Social Justice: justice/cover.md
