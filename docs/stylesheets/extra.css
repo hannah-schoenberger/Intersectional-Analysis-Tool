@@ -880,6 +880,22 @@ sup {
     color: var(--ink);
   }
 
+  /* ---------- COMPLEXITY BOTTOM FIGURES ---------- */
+
+.complexity-figures-bottom {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 2rem 0 2.5rem;
+}
+
+.complexity-figures-bottom img {
+  width: calc(50% - 1rem);
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
 
   .footnotes {
     margin-top: 3rem;
