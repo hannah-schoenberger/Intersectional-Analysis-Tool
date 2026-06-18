@@ -1451,3 +1451,14 @@ sup {
     font-weight: normal;
     line-height: 1.2;
   }
+
+  /* ---------- GLOBAL DESKTOP SCALE ---------- */
+
+@media (min-width: 901px) {
+  .md-main {
+    transform: scale(0.85);
+    transform-origin: top center;
+    width: 117.65%;
+    margin-left: -8.8%;
+  }
+}
