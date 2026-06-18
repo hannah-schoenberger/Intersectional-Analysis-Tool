@@ -1,0 +1,769 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Relationality - Intersectional Analysis Tool</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#relationality" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Intersectional Analysis Tool" class="md-header__button md-logo" aria-label="Intersectional Analysis Tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intersectional Analysis Tool
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Relationality
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Complexity/cover/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Complexity
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="cover/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Relationality
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../context/cover/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Social Context
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../power/cover/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Power
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../inequality/cover/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Social Inequality
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../justice/cover/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Social Justice
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Intersectional Analysis Tool" class="md-nav__button md-logo" aria-label="Intersectional Analysis Tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Intersectional Analysis Tool
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Complexity/cover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complexity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context/cover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Context
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power/cover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inequality/cover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Inequality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../justice/cover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Justice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="relationality">Relationality</h1>
+<div class="notebook-page">
+
+<div class="notebook-content">
+
+<div class="hero-quote">
+“[...] entities that historically have been conceptualized as separate and oppositional are interconnected and interrelated”
+<span>Collins & Bilge (2020,198)</span>
+</div>
+
+<p>
+Intersectional analysis examines how different systems of power are constructed and maintained through relational, interdependent processes, and how these interactions shape complex, interwoven structures of inequality (Collins 2019, 45). The core concept of relationality is therefore fundamental to the intersectional paradigm (Collins 2019, 48).
+</p>
+
+
+<div class="relationality-quote-section">
+
+  <div class="quote-note wide-quote-note">
+
+<div class="quote-tape"></div>
+  <p>
+    “Black women can experience discrimination in ways that are both
+    <i>similar</i> to and <i>different</i> from those experienced by
+    white women and Black men. <br> Black women sometimes experience
+    discrimination in ways <u>similar to white women's</u> experiences;
+    sometimes they share very <u>similar experiences with Black men</u>.
+    Yet often they experience <u>double-discrimination</u> – the combined
+    effects of practices which discriminate on the basis of race, and on
+    the basis of sex. <br>And sometimes, they experience discrimination as
+    Black women – <u>not the sum of race and sex</u> discrimination, but as
+    Black women.”
+  </p>
+
+ <span>
+    Crenshaw (1989, 149)
+  </span>
+
+   </div>
+
+  <div class="quote-side-note">
+    Crenshaw emphasizes that the relations between different categories, and the inequalities produced by the ways they interact, <u>can vary</u>.
+  </div>
+
+</div>
+
+<p>
+This raises questions on how to empirically capture, differentiate and analyze the various<sup class="citation">1</sup> forms and qualities of relational processes.
+</p>
+<div class="section-divider"></div>
+<p>
+To systematize how relationality is represented in (quantitative) intersectional approaches, I draw on Collins’ (2019, 226) <u>three modes of relational thinking</u>: ‘addition’<sup class="citation">2</sup>, articulation, and co-formation.
+</p>
+
+<p>
+1. <u>‘Addition’</u> involves incorporating new elements to explain social inequalities. This follows the core premise of relationality: “[...] entities that historically have been conceptualized as separate and oppositional are interconnected and interrelated” (Collins/Bilge 2020, 198); leading to a shift from an either/or logic to a both/and perspective (Collins 2019, 227; Collins/Bilge 2020, 198). In quantiative intersectional analysis this mode of relational thinking is often put into practice by ‘adding’ predictors to regression models, starting with main effects and extending to interaction terms (Bowleg/Bauer 2016). The goal is to achieve a more precise modelling of the distribution of social inequalities by accounting for multiple systems of power and their joint influence.
+</p>
+
+<p>
+2. <u>Articulation</u> focuses on how analyzed elements are dynamically connected to each other – just as a joint (articulatio) links skeletal parts in a way that allows their relationship to change depending on the forces applied (Collins 2019, 232ff., 241). Incorporating articulation into intersectional analysis opens the “black box” of mechanisms by directly examining how intersecting power structures interact to reproduce and shape inequalities, focusing on the internal dynamics of these interactions.
+</p>
+
+<p>
+3. <u>Co-Formation</u> describes the idea that categories and their underlying systems of power are mutually constructed in their very meaning and structure (Collins 2019, 241ff.). This mode of relational thinking emphasizes that boundaries between categories blur, as they exist in interdependent and constitutive relations<sup class="citation">3</sup>.
+</p>
+<div class="section-divider"></div>
+<p>
+The <a href="guiding/">guiding</a> and <a href="methodological/">methodological</a>  questions on relationality systematize how different relational processes and their qualities are empirically captured, depending on the adopted mode of relational thinking. This helps to understand how they can complement one another in a multi-perspective approach (Collins 2019, 250). Turning to the relations between these perspectives, we also reflect on how they are related to one another (e.g. through comparison, integration, synthesis or iterative co-construction) and how tensions, contradictions and inconsistencies are interpreted and addressed.
+</p>
+<div class="section-divider"></div>
+<p>
+When applied reflexively, the concept of relationality highlights the relationships between the various actors, institutions, and structures that influence the research process and knowledge production. This may include considerations of inter- or transdisciplinary collaboration (relations between disciplines), participatory research (relations between researchers and participants; see e.g. Moradi 2017, 508), theory–practice transfer and science communication (relations between academia and practice; for best practice see e.g. Aikins et al. 2021), or mixed-methods approaches (relations between qualitative and quantitative methods).
+</p>
+
+<p>
+The <a href="reflexive/">self-reflexive</a> questions on relationality in knowledge production allow stakeholders to intentionally reflect upon, shape and negotiate such relational processes as part of intersectional research practice.
+</p>
+
+<details class="reference-block">
+
+<summary>Notes</summary>
+
+<ol>
+  <li>
+    Other than quantitative analyses that follow an “intersectionality as testable hypothesis” approach (Hancock 2013), this tool does not differentiate between intersectional and “non-intersectional” (e.g. purely additive) relational processes. Instead, intersectionality is understood as a framework that guides analysis with the aim of making the heterogeneity of relations (e.g. additive, multiplicative, mitigating) visible (see also Evans et al. 2024, 5 for a similar understanding).
+  </li>
+
+  <li>
+    ‘Addition’ should not be understood in a strictly mathematical sense, but rather describes the insertion of additional elements into the analysis without making any statements about the mathematical consequences (Collins 2019, 229). To reduce terminological misunderstandings, the term is written in quotation marks.
+  </li>
+
+  <li>
+    See also Walgenbach’s (2007) critique of Crenshaw’s metaphor of the intersection.
+  </li>
+</ol>
+
+</details>
+
+
+
+<details class="reference-block">
+
+<summary>References</summary>
+
+<ol>
+
+Collins, Patricia Hill/Bilge, Sirma (2020): Intersectionality (Key Concepts). 2nd Edition. Cambridge: Polity.
+<br>
+<br>
+Collins, Patricia Hill (2019): Intersectionality as Critical Social Theory. Durham: Duke University Press. doi: 10.1215/9781478007098
+<br>
+<br>
+Crenshaw, Kimberlé (1989): Demarginalizing the Intersection of Race and Sex: A Black Feminist Critique of Antidiscrimination Doctrine, Feminist Theory and Antiracist Politics. In: University of Chicago Legal Forum, 1989 (1), 139–167.
+<br>
+<br>
+Bowleg, Lisa/Bauer, Greta (2016): Invited Reflection: Quantifying Intersectionality. In: Psychology of Women Quarterly 40 (3), 337–341. doi: 10.1177/0361684316654282
+<br>
+<br>
+Moradi, Bonnie/Grzanka, Patrick R. (2017): Using Intersectionality Responsibly: Toward Critical Epistemology, Structural Analysis, and Social Justice Activism. In: Journal of Counseling Psychology 64 (5), 500–513. doi: 10.1037/cou0000203
+<br>
+<br>
+Aikins, Muna AnNisa/Bremberger, Teresa/Aikins, Joshua Kwesi/Gyamerah, Daniel/Yıldırım-Caliman, Deniz (2021): Afrozensus 2020: Perspektiven, Anti-Schwarze Rassismuserfahrungen und Engagement Schwarzer, afrikanischer und afrodiasporischer Menschen in Deutschland, Berlin. www.afrozensus.de
+ </li>
+
+ </div>
+
+</ol>
+
+</details>
+
+
+
+<div class="notebook-tabs">
+
+<div class="tab active">
+Relationality
+</div>
+
+<a class="tab guiding" href="guiding/">
+Guiding Questions
+</a>
+
+<a class="tab methodological" href="methodological/">
+Methodological Questions
+</a>
+
+<a class="tab reflexive" href="reflexive/">
+Self-reflexive Questions
+</a>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

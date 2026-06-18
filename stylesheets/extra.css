@@ -1,0 +1,1453 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ---------- VARIABLES ---------- */
+
+:root {
+  --paper: #fffdf8;
+  --ink: #151515;
+  --muted: #6f6f6f;
+  --line: #1f1f1f;
+  --soft-line: #d8d1c7;
+
+  --complexity: #6f9f72;
+  --guiding: #e5ad18;
+  --methodological: #4c9a68;
+  --reflexive: #b579d0;
+
+  --annotation: #a87400;
+}
+
+/* ---------- MKDOCS CLEANUP ---------- */
+
+.md-header {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: none;
+  border-bottom: 1px solid #e7e2da;
+}
+
+.md-header__title,
+.md-header__topic,
+.md-search__input {
+  color: var(--ink);
+}
+
+.md-tabs {
+  background: #ffffff;
+  color: var(--ink);
+  border-bottom: 1px solid #e7e2da;
+}
+
+.md-sidebar--primary {
+  display: none;
+}
+
+.md-content {
+  margin-left: 0;
+}
+
+.md-typeset {
+  color: var(--ink);
+}
+
+.md-grid {
+    max-width: 95vw !important;
+  }
+
+  
+  .md-main__inner {
+    max-width: 96vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .md-content {
+    margin-left: 0 !important;
+    max-width: none !important;
+  }
+  
+  .md-content__inner {
+    max-width: none !important;
+  }
+
+
+/* ---------- HOME / NOTEBOOK COVERS ---------- */
+
+.notebook-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.4rem;
+    margin-top: 4rem;
+    width: 100%;
+  }
+  
+  .notebook-card {
+    text-align: center;
+  }
+  
+  .notebook-card a {
+    display: block;
+    text-decoration: none;
+  }
+  
+  .notebook-card img {
+    width: 100%;
+    display: block;
+    border-radius: 0;
+  
+    box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+  
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+  
+  .notebook-card a:hover img {
+    transform: translateY(-10px);
+    box-shadow: 0 22px 42px rgba(0,0,0,0.18);
+  }
+
+  /* ---------- WIDER CONTENT AREA ---------- */
+
+.md-grid {
+    max-width: 95vw;
+  }
+
+/* ---------- NOTEBOOK PAGE ---------- */
+
+.notebook-page {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1680px;
+  width: 102vw;
+
+  margin: 3.8rem auto;
+  padding: 5.8rem 6.8rem;
+
+  background: var(--paper);
+  border: none;
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.08),
+    inset 0 0 40px rgba(180,160,120,0.045);
+
+  min-height: 1240px;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  line-height: 1.7;
+
+  overflow: visible;
+}
+
+.notebook-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.notebook-page::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--complexity);
+  z-index: 4;
+}
+
+.notebook-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1380px;
+}
+
+.notebook-content h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.4rem;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+  margin: 0 0 1.4rem 0;
+}
+
+.notebook-content h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 750;
+  color: #343434;
+  margin: 0 0 2.2rem 0;
+}
+
+.notebook-content p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  max-width: 1380px;
+}
+
+/* ---------- AUTOMATIC ANNOTATIONS ---------- */
+
+/* Sketchy double-circle */
+
+.notebook-content i,
+.notebook-content em {
+  position: relative;
+  display: inline-block;
+  font-style: normal;
+  z-index: 5;
+}
+
+/* äußerer Kreis */
+.notebook-content i::before,
+.notebook-content em::before {
+  content: "";
+
+  position: absolute;
+
+  left: -0.55em;
+  right: -0.45em;
+  top: -0.28em;
+  bottom: -0.18em;
+
+  border: 2px solid var(--annotation);
+
+  border-radius:
+    58% 42% 63% 39% /
+    45% 62% 38% 57%;
+
+  transform: rotate(-3deg);
+
+  opacity: 0.9;
+
+  pointer-events: none;
+
+  /* kleine Öffnung */
+  clip-path: polygon(
+    0 0,
+    88% 0,
+    100% 12%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* innerer nachgezogener Kreis */
+.notebook-content i::after,
+.notebook-content em::after {
+  content: "";
+
+  position: absolute;
+
+  left: -0.42em;
+  right: -0.58em;
+  top: -0.16em;
+  bottom: -0.26em;
+
+  border: 1.8px solid var(--annotation);
+
+  border-radius:
+    47% 61% 41% 59% /
+    63% 41% 58% 42%;
+
+  transform: rotate(1.8deg);
+
+  opacity: 0.65;
+
+  pointer-events: none;
+
+  clip-path: polygon(
+    0 10%,
+    90% 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Underlined <u> = hand-drawn underline */
+.notebook-content u {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  z-index: 5;
+}
+
+.notebook-content u::after {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  bottom: 0.02em;
+  height: 0.16em;
+  background: var(--annotation);
+  opacity: 0.55;
+  border-radius: 60% 40% 55% 45%;
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Bold <strong> / <b> = handwritten annotation with corner arrow */
+
+.notebook-content strong,
+.notebook-content b {
+  position: relative;
+  display: block;
+
+  margin-top: 0.45rem;
+  margin-left: 1.9rem;
+
+  color: var(--annotation);
+  font-family: "Caveat", "Patrick Hand", cursive;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-transform: none;
+
+  transform: none;
+}
+
+/* curved corner arrow line */
+.notebook-content strong::before,
+.notebook-content b::before {
+  content: "";
+  position: absolute;
+
+  left: -1.55rem;
+  top: -0.25rem;
+
+  width: 1.1rem;
+  height: 1rem;
+
+  border-left: 2px solid var(--annotation);
+  border-bottom: 2px solid var(--annotation);
+  border-radius: 0 0 0 0.45rem;
+
+  transform: rotate(-2deg);
+}
+
+/* arrow head */
+.notebook-content strong::after,
+.notebook-content b::after {
+  content: "";
+  position: absolute;
+
+  left: -0.55rem;
+  top: 0.48rem;
+
+  width: 0.45rem;
+  height: 0.45rem;
+
+  border-top: 2px solid var(--annotation);
+  border-right: 2px solid var(--annotation);
+
+  transform: rotate(45deg);
+}
+/* Fußnote */
+.citation {
+    color: var(--annotation);
+    font-family: inherit;
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+
+/* ---------- SIDE REGISTER TABS ---------- */
+
+.notebook-tabs {
+    position: absolute;
+    top: 4.2rem;
+    right: -118px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    z-index: 0;
+  }
+  
+  .tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 116px;
+    height: 285px;
+  
+    padding: 0.5rem;
+  
+    background: #f8f7f3;
+  
+    /* inaktive Tabs grau */
+    color: #7a7a7a;
+  
+    border: 1px solid #e4dfd6;
+    border-left: none;
+    border-radius: 0 18px 18px 0;
+  
+    box-shadow: 8px 10px 24px rgba(0,0,0,0.08);
+  
+    text-decoration: none;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 0.76rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+  
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      color 0.18s ease;
+  }
+  
+  /* Registerlinie bleibt grün */
+  .tab::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--complexity);
+  }
+  
+  .tab:hover {
+    transform: translateX(5px);
+    box-shadow: 10px 14px 28px rgba(0,0,0,0.11);
+  
+    /* Hover leicht dunkler */
+    color: #4f4f4f;
+  }
+  
+  .tab.active,
+  .tab.active-tab-green {
+    background: #ffffff;
+  
+    /* aktive Schrift grün */
+    color: var(--complexity);
+  
+    font-weight: 850;
+  }
+
+/* ---------- QUESTION ACCORDIONS ---------- */
+
+.md-typeset details.question-accordion {
+  margin: 3rem 0 0 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-top: 1.4px solid var(--line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-typeset details.question-accordion[open] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-typeset details.question-accordion > summary {
+  position: relative;
+  display: block !important;
+  padding: 1.7rem 2rem 1.7rem 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  list-style: none;
+  cursor: pointer;
+}
+
+.md-typeset details.question-accordion > summary::before {
+  display: none !important;
+}
+
+.md-typeset details.question-accordion > summary::-webkit-details-marker {
+  display: none !important;
+}
+
+.md-typeset details.question-accordion > summary::after {
+    content: "›";
+  
+    float: right;
+  
+    color: var(--complexity);
+  
+    font-size: 2.6rem;
+    font-weight: 400;
+  
+    line-height: 0.8;
+  
+    transition: transform 0.2s ease;
+  }
+  
+  .md-typeset details.question-accordion[open] > summary::after {
+    transform: rotate(90deg);
+  }
+
+.dimension {
+  display: block;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a6d00;
+  margin-bottom: 0.9rem;
+  font-weight: 750;
+}
+
+.question {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  line-height: 1.1;
+  color: var(--ink);
+  font-weight: 700;
+  max-width: 92%;
+  letter-spacing: -0.04em;
+  overflow: visible;
+}
+
+
+.accordion-sub-question {
+  position: relative;
+  display: block;
+
+  margin-left: 2.5rem;
+  margin-bottom: 1rem;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.6;
+
+  color: var(--ink);
+  letter-spacing: normal;
+}
+
+.accordion-sub-question::before {
+  content: "↳";
+  position: absolute;
+  left: -1.6rem;
+  color: var(--annotation);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+.accordion-sub-question::before {
+  content: "↳";
+  position: absolute;
+  left: -1.6rem;
+  color: var(--annotation);
+}
+
+.accordion-body {
+  padding: 0 0 2.4rem 0;
+  border-top: none;
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  margin-top: 0.6rem;
+  padding-top: 1.8rem;
+  border-top: 1.2px solid var(--line);
+}
+
+.challenge-grid > div {
+  padding: 0;
+}
+
+.challenge-grid > div:first-child {
+  border-right: 1px solid #b7b0a6;
+  padding-right: 2.3rem;
+}
+
+.challenge-grid h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin: 0 0 1.15rem 0;
+  color: #555;
+  font-weight: 750;
+}
+
+.challenge-grid ul {
+  padding-left: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.challenge-grid li {
+  font-size: 0.88rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.65;
+}
+
+/* ---------- FURTHER READINGS ---------- */
+
+.md-typeset details.further-reading {
+  margin-top: 2rem !important;
+  padding: 0 !important;
+  border: none !important;
+  border-top: 1px dashed #8a8173 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-typeset details.further-reading > summary {
+  padding: 1rem 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 750;
+}
+
+.md-typeset details.further-reading > summary::before {
+  display: none !important;
+}
+
+.md-typeset details.further-reading > summary::after {
+  content: "⌄";
+  float: right;
+  font-weight: 800;
+}
+
+.md-typeset details.further-reading[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+.further-reading ol {
+  margin-top: 0.8rem;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.further-reading li {
+  margin-bottom: 0.65rem;
+}
+
+sup {
+  font-size: 0.65rem;
+  vertical-align: super;
+  margin-left: 0.1rem;
+  font-weight: 700;
+}
+
+/* ---------- GUIDING / REFLEXIVE QUESTION LISTS ---------- */
+
+.question-list {
+  margin-top: 2.4rem;
+  border-top: 1.4px solid var(--line);
+}
+
+.question-item {
+  padding: 1.3rem 0;
+  border-left: none;
+  border-bottom: 1px solid #ddd6ca;
+  margin-bottom: 0;
+}
+
+.question-item p {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  line-height: 1.45;
+  font-weight: 600;
+  max-width: 90%;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1300px) {
+  .notebook-page {
+    width: min(1100px, 78vw);
+  }
+
+  .notebook-tabs {
+    right: -102px;
+  }
+
+  .tab {
+    width: 100px;
+    height: 165px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .notebook-page {
+    width: auto;
+    padding: 3rem 2rem;
+  }
+
+  .notebook-tabs {
+    position: static;
+    flex-direction: row;
+    margin-top: 2rem;
+  }
+
+  .tab {
+    writing-mode: horizontal-tb;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    border-left: 1px solid #e4dfd6;
+  }
+
+  .challenge-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .challenge-grid > div:first-child {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  .notebook-grid {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+  }
+}
+
+.question-group {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #ddd6ca;
+  }
+  
+  .main-question {
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sub-question {
+    position: relative;
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+  
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  
+  .sub-question::before {
+    content: "↳";
+    position: absolute;
+    left: -1.6rem;
+    color: var(--annotation);
+  }
+  
+  .question-example {
+    margin-left: 2.5rem;
+    margin-top: 0.8rem;
+  
+    font-size: 0.92rem;
+    color: var(--muted);
+  
+    font-style: italic;
+  }
+
+  .guiding-example-annotation {
+    position: relative;
+  
+    margin-left: 3.5rem;
+    margin-top: 0.15rem;
+    max-width: 78%;
+  
+    color: var(--annotation);
+  
+    font-family: "Caveat", cursive;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+  
+/* ---------- TAB COLOR OVERRIDES ---------- */
+
+/* alle inaktiven Tabs grau */
+.notebook-tabs .tab,
+.notebook-tabs .tab.guiding,
+.notebook-tabs .tab.methodological,
+.notebook-tabs .tab.reflexive,
+.notebook-tabs .tab.active-tab-green {
+  color: #7a7a7a !important;
+}
+
+/* nur der aktive Tab grün */
+.notebook-tabs .tab.active {
+  color: var(--complexity) !important;
+  font-weight: 850;
+}
+
+/* aktive Complexity-Startseite auch grün, falls sie active-tab-green nutzt */
+.notebook-tabs .tab.active-tab-green.active {
+  color: var(--complexity) !important;
+}
+
+/* Hover für inaktive Tabs */
+.notebook-tabs a.tab:hover {
+  color: #4f4f4f !important;
+}
+
+/* ---------- COMPLEXITY START PAGE ---------- */
+
+.hero-quote {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.15rem;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    max-width: 980px;
+    margin: 0 0 3rem 0;
+    color: var(--ink);
+  }
+  
+  .hero-quote span {
+    display: block;
+    margin-top: 0.8rem;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 750;
+    color: var(--annotation);
+  }
+  
+
+
+  .complexity-figures {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
+    margin: 2.4rem 0 2.6rem 0;
+  }
+  
+  .complexity-figure {
+    border: 1.4px dashed #8a8173;
+    padding: 1rem 0.8rem 0.8rem;
+    min-height: 190px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .complexity-figure img {
+    width: 100%;
+    max-height: 130px;
+    object-fit: contain;
+  }
+  
+  .complexity-figure span {
+    margin-top: 0.7rem;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 750;
+    text-align: center;
+    color: var(--ink);
+  }
+
+
+  .footnotes {
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--soft-line);
+  
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  
+  .footnotes h3 {
+    margin: 0 0 0.8rem 0;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 750;
+    color: var(--ink);
+  }
+  
+  .footnotes ol {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  
+  .footnotes li {
+    margin-bottom: 0.7rem;
+  }
+
+  .notebook-content a {
+    color: var(--annotation);
+    text-decoration: none;
+  }
+  
+  .notebook-content a:hover {
+    color: var(--complexity);
+  }
+
+  .section-divider {
+    border-top: 1px solid #cfc8bc;
+    margin: 3rem 0;
+  }
+
+  .reference-block {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--soft-line);
+    padding-top: 1rem;
+  }
+  
+  .md-typeset details.reference-block > summary::after {
+    content: "+";
+    float: right;
+  
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1;
+  
+    color: var(--complexity);
+  }
+  
+  .md-typeset details.reference-block[open] > summary::after {
+    content: "–";
+  }
+  
+  .reference-block summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .reference-block summary::after {
+    content: "⌄";
+    float: right;
+  
+    font-size: 2.2rem;
+    font-weight: 400;
+  
+    transition: transform 0.2s ease;
+  }
+  
+  .reference-block[open] summary::after {
+    transform: rotate(180deg);
+  }
+  
+  .reference-block ol,
+  .reference-block p {
+    margin-top: 1.2rem;
+  }
+
+  /* ---------- CLEAN DETAILS BLOCKS ---------- */
+
+.md-typeset details.reference-block {
+    margin: 2.5rem 0 0 0 !important;
+    padding: 0 !important;
+  
+    background: transparent !important;
+    border: none !important;
+    border-top: 1px solid var(--soft-line) !important;
+    border-radius: 0 !important;
+  
+    box-shadow: none !important;
+  }
+  
+  .md-typeset details.reference-block[open] {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .md-typeset details.reference-block > summary {
+    padding: 1rem 0 !important;
+  
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  
+    list-style: none;
+    cursor: pointer;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  
+    color: var(--ink);
+  }
+  
+  .md-typeset details.reference-block > summary::before {
+    display: none !important;
+  }
+  
+  .md-typeset details.reference-block > summary::-webkit-details-marker {
+    display: none !important;
+  }
+  
+  .md-typeset details.reference-block > summary::after {
+    content: "+";
+    float: right;
+  
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1;
+  
+    color: var(--complexity);
+  }
+  
+  .md-typeset details.reference-block[open] > summary::after {
+    content: "–";
+  }
+
+/* ---------- NOTEBOOK COVER PAGE ---------- */
+
+.notebook-cover-wrapper {
+    min-height: 75vh;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    overflow: visible;
+  }
+  
+  .cover-book {
+    position: relative;
+    z-index: 1;
+  
+    max-width: 1080px;
+    width: 102vw;
+    min-height: 780px;
+  
+    background: #ffffff;
+    border: none;
+  
+    box-shadow:
+      0 18px 45px rgba(0,0,0,0.08),
+      inset 0 0 40px rgba(180,160,120,0.045);
+  
+    overflow: visible;
+  
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  
+  .cover-book:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 24px 55px rgba(0,0,0,0.11),
+      inset 0 0 40px rgba(180,160,120,0.045);
+  }
+  
+  .cover-main-link {
+    display: block;
+    width: 100%;
+    min-height: 780px;
+    text-decoration: none;
+  }
+  
+  .cover-book img {
+    width: 100%;
+    min-height: 780px;
+    display: block;
+  
+    object-fit: cover;
+  }
+  
+  /* ---------- COVER TABS ---------- */
+  
+  .cover-tabs {
+    position: absolute;
+    top: 4.2rem;
+    right: -118px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  
+    z-index: 5;
+  }
+  
+  .cover-tab {
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 116px;
+    height: 285px;
+  
+    padding: 0.5rem;
+  
+    background: #f8f7f3;
+    color: #7a7a7a;
+
+    border: 1px solid #e4dfd6;
+    border-left: none;
+    border-radius: 0 18px 18px 0;
+  
+    box-shadow: 8px 10px 24px rgba(0,0,0,0.08);
+  
+    text-decoration: none;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 0.76rem;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+  
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      color 0.18s ease;
+  }
+
+  .cover-tab,
+.cover-tab:visited {
+  color: #7a7a7a !important;
+  text-decoration: none;
+}
+  
+  /* alle Register am geschlossenen Cover grau */
+  .cover-tab::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+  
+    width: 3px;
+    height: 100%;
+  
+    background: #c8c2b8;
+  }
+  
+  .cover-tab:hover {
+    transform: translateX(5px);
+    box-shadow: 10px 14px 28px rgba(0,0,0,0.11);
+    color: #4f4f4f;
+  }
+
+  .cover-tab:hover,
+.cover-tab:focus {
+  color: #4f4f4f !important;
+  text-decoration: none;
+}
+  
+  /* ---------- OPEN NOTE ---------- */
+  
+  .open-notebook-note {
+    text-align: center;
+  
+    font-size: 0.85rem;
+    color: #888;
+  
+    margin-top: -2rem;
+  
+    font-style: italic;
+  }
+ /*  -----*/
+
+  .notebook-page ~ h1,
+.md-content__inner > h1:first-child {
+  display: none;
+}
+
+/* ---------- RELATIONALITY QUOTE NOTE ---------- */
+
+.relationality-quote-section {
+    position: relative;
+  
+    display: grid;
+    grid-template-columns: minmax(680px, 1fr) 300px;
+    gap: 3.2rem;
+  
+    align-items: center;
+  
+    margin: 2.8rem 0 4rem 0;
+  }
+  
+  .quote-note {
+    position: relative;
+  
+    padding: 2.8rem 3.3rem 2.4rem;
+  
+    background: #fff4cf;
+  
+    box-shadow:
+      0 18px 35px rgba(0,0,0,0.14),
+      inset 0 0 30px rgba(160,120,40,0.08);
+  
+    transform: rotate(-2deg);
+  
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    color: var(--ink);
+
+        z-index: 10;
+    
+  }
+
+  .quote-note p,
+    .quote-note span {
+  position: relative;
+  z-index: 2;
+}
+  
+  .wide-quote-note {
+    max-width: none;
+    width: 100%;
+  }
+  
+  .quote-note::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+      
+        z-index: 1;
+        pointer-events: none;
+  
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0) 35%,
+        rgba(120,80,20,0.05)
+      );
+  
+    pointer-events: none;
+  }
+  
+  .quote-tape {
+    position: absolute;
+  
+    top: -1.2rem;
+    left: 50%;
+  
+    width: 140px;
+    height: 34px;
+  
+    background: rgba(210,205,190,0.72);
+  
+    transform: translateX(-50%) rotate(1deg);
+   
+    z-index: 100;
+  
+    box-shadow:
+      0 2px 6px rgba(0,0,0,0.08);
+  }
+  
+  .quote-note p {
+    position: relative;
+    z-index: 10;
+  
+    margin: 0;
+  
+    font-size: 1.05rem;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+  }
+  
+  .quote-note span {
+    position: relative;
+    z-index: 1;
+  
+    display: block;
+  
+    margin-top: 1.8rem;
+  
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+  
+  .quote-note u {
+    position: relative;
+    display: inline-block;
+  
+    text-decoration: none;
+  }
+  
+  .quote-note u::after {
+    content: "";
+    position: absolute;
+  
+    left: -0.05em;
+    right: -0.05em;
+    bottom: 0.08em;
+  
+    height: 0.12em;
+  
+    background: var(--annotation);
+    opacity: 0.55;
+  
+    transform: rotate(-1deg);
+  
+    z-index: -1;
+  }
+  
+  /* handwritten note to the right */
+  
+  .quote-side-note {
+    position: relative;
+  
+    color: #b37a18;
+  
+    font-family: "Caveat", "Patrick Hand", cursive;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    font-weight: 600;
+  
+    transform: rotate(-2deg);
+  
+    max-width: 270px;
+  }
+  
+  .quote-side-note {
+    position: relative;
+  
+    margin-left: -0.8rem;
+  
+    color: #b37a18;
+  
+    font-family: "Caveat", cursive;
+    font-size: 1.5rem;
+    line-height: 1.35;
+  
+    transform: rotate(-3deg);
+  }
+  
+  .quote-side-note::before {
+    content: "↖";
+  
+    position: absolute;
+  
+    left: -42px;
+    top: -4px;
+  
+    font-family: "Caveat", cursive;
+    font-size: 2rem;
+  
+    color: var(--annotation);
+  
+    transform: rotate(-10deg);
+  }
+
+  .quote-side-note u {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .hero-quote .quote-author {
+    display: block;
+    margin-top: 0.8rem;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 750;
+    color: var(--annotation);
+  }
+  
+  .hero-quote .quote-ellipsis {
+    display: inline !important;
+    color: #a3a3a3;
+    font-size: 0.48em;
+    font-style: italic;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+ 
+  .inline-handwritten {
+    display: inline;
+  
+    margin-left: 0.8rem;
+  
+    font-family: "Caveat", cursive;
+    font-size: 1.2rem;
+    font-weight: 600;
+  
+    color: var(--annotation);
+  
+    white-space: nowrap;
+  
+    transform: rotate(-1deg);
+  }
+
+  .method-click-note {
+    position: absolute;
+  
+    top: 0.0rem;
+    right: 1rem;
+  
+    text-align: right;
+  
+    font-family: "Caveat", "Patrick Hand", cursive;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.0;
+  
+    color: var(--annotation);
+  
+    transform: rotate(-2deg);
+  }
+  
+  .method-click-arrow {
+    display: inline-block;
+  
+    margin-right: 0.3rem;
+  
+    font-size: 1.7rem;
+  
+    transform: rotate(-10deg);
+  }
+
+  .annotated-word {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .annotated-word-note {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+  
+    margin-top: 6px;
+  
+    font-family: "Caveat", cursive;
+    font-size: 1.1rem;
+    color: #b57a00;
+  
+    white-space: nowrap;
+    font-weight: normal;
+    line-height: 1.2;
+  }
