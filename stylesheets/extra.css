@@ -2547,3 +2547,16 @@ body:has(.notebook-page) .complexity-figures-bottom {
   }
 
 }
+
+.md-footer-meta {
+  display: none;
+}
+
+/* Hintergrund des mobilen Seitenmenüs */
+.md-nav--primary .md-nav__title[for="__drawer"] {
+  background-color: #315B46;
+}
+/* Aktiver Menüpunkt */
+.md-nav__link--active {
+  color: #315B46 !important;
+}
