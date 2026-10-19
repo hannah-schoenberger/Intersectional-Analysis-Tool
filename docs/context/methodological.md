@@ -1,6 +1,6 @@
 # Methodological Questions
 
-<div class="notebook-page">
+<div class="notebook-page social-context-methodological">
 
 <div class="notebook-content">
 
@@ -13,7 +13,7 @@
   <br> <span class="method-click-arrow">↓</span>
 </div>
 
-<details class="question-accordion">
+<details class="question-accordion context-internal-question">
 
 <summary>
 <span class="dimension">Internal Contextualization</span>
